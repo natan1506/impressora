@@ -1,0 +1,101 @@
+<!DOCTYPE>
+    <html>
+    <head>
+
+   <style type="text/css">
+        .fonte1{font-family: Calibri;font-size: 100px;}
+
+    </style>
+
+
+    <title>IMPRESSÃO DE ETIQUETAS</title>
+
+
+    <script type="text/javascript">
+        function Popup(data) 
+        {
+            var mywindow = window.open('', 'my div', 'height=400,width=600');
+            mywindow.document.write('<html><head><title>my div</title>');
+            mywindow.document.write('</head><body >');
+            mywindow.document.write(data);
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close();
+            mywindow.focus();
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+
+        function GerarEtiquetas()
+        {
+
+        document.write('<input type="button" value="Print" onclick="PrintElem('#etiquetas')" />');
+
+            var remetente=window.document.getElementById("remetente").value;
+            var destinatario=window.document.getElementById("destinatario").value;
+            var nota=window.document.getElementById("nota").value;
+            var volume=parseInt(window.document.getElementById("volume").value);
+            var peso=window.document.getElementById("peso").value;
+
+            var dados="";
+
+            for (var i = 1; i < parseInt(volume+1); i++) {
+                var Etiqueta=window.document;
+                dados+=i+"<br>"+
+                    "<table border=1 width=400px>"+
+                    "<tr height=50><td style='font-family:Calibri;font-size:15px;font-weight:bold' >REMETENTE:<br>"+remetente+"</td></tr>"+
+                    "<tr height=50><td style='font-family:Calibri;font-size:15px;font-weight:bold' >DESTINATÁRIO:<br>"+destinatario+"</td></tr>"+
+                    "<tr height=50><td style='font-family:Calibri;font-size:15px;font-weight:bold' >NOTA:  "+nota+"</tr></td>"+
+                    "<tr height=50><td style='font-family:Calibri;font-size:10px;font-weight:bold' >VOLUMES:  "+i+" / "+volume+" </br>PESO: (Kg):<br>"+peso+"</td></tr>"+
+                    "</table>";
+            }
+            Popup(dados);
+        }
+
+
+    </script>
+
+ 
+
+
+    </head>
+
+
+    <body>
+
+    <p>Impressão de Etiquetas</p>
+
+<div id="etiquetas" style="border: 1px solid; width: 500px; padding: 10px;">
+
+      <form>
+        Remetente:<br/>
+        <input id="remetente" type="text" name="Remetente" size="60"></input>
+        <br><br>
+        Destinatário:<br>
+        <input id="destinatario" type="text" name="Destinatário" size="60"></input>
+        <br/><br/>
+        Nota:
+        <input id="nota" type="text" name="Nota" size="20"></input>
+        Volumes:
+        <input id="volume" type="text" name="Volumes" size="20"></input>
+        <br/>
+        <br/>
+        Peso(Kg):
+        <input id="peso" type="text" name="Peso" size="20"></input>
+        <input type="submit" name="gerar" onclick="GerarEtiquetas()">
+
+      </form>
+
+</div>
+
+    </body>
+    </html>
+
+
+
+
+
+

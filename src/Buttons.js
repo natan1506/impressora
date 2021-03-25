@@ -7,8 +7,8 @@ const Buttons = {
     document.body.innerHTML = "";
 
     document.body.innerHTML =  `
-      <button type="button" class="btn btn-outline-primary m-1" id="buttonTagInitial">Etiqueta para Pedido</button>
-      <button type="button" class="btn btn-outline-primary m-1"
+      <button type="button" class="btn btn-lg btn-outline-primary m-1" id="buttonTagInitial">Etiqueta para Pedido</button>
+      <button type="button" class="btn btn-lg btn-outline-primary m-1"
       id="buttonTagNote">Etiqueta para Nota</button>`;
 
     TagInitial.init();
