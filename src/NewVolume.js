@@ -1,6 +1,5 @@
 const NewVolume = {
   render() {
-    console.log(document.getElementById("volumes"));
     $("#volumes").append(`
       <div class="row mb-3">
         <div class="col">

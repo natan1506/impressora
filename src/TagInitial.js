@@ -1,5 +1,6 @@
 import { Buttons } from './Buttons.js';
 import { NewVolume } from './NewVolume.js';
+import { Print } from './Print.js';
 
 const TagInitial = {
   init() {
@@ -14,7 +15,8 @@ const TagInitial = {
     document.body.innerHTML = "";
 
     document.body.innerHTML = `
-      <div class="card card mb-3 shadow p-3 mb-5 rounded mb-3">
+      <div class="d-none d-print-block div-print" height=400 width=600 id="divPrint"></div>
+      <div class="card card mb-3 shadow p-3 mb-5 rounded mb-3 d-print-none">
         <div class="card-header bg-transparent row">
           <div class="col align-middle">
             <span>Impressão Etiquetas para Pedido</span>
@@ -47,6 +49,12 @@ const TagInitial = {
               </div>
             </div>
           </div>
+          <div class="form-group row mb-3">
+            <label for="order" class="col-sm-auto col-form-label"># pedido</label>
+            <div class="col-sm">
+              <input type="text" class="form-control" id="order" name="order">
+            </div>
+          </div>
 
           <div class="row justify-content-end">
             <div class="col-auto">
@@ -55,7 +63,7 @@ const TagInitial = {
           </div>
         </div>
       </div>
-      <button class="btn btn-lg btn-outline-primary btn-floating rounded-circle" id="toBack"><i class="fas fa-arrow-left"></i></button>
+      <button class="btn btn-lg btn-outline-primary btn-floating rounded-circle d-print-none" id="toBack"><i class="fas fa-arrow-left"></i></button>
     `;
 
     $('.weight').mask('##00.00', {reverse: true});
@@ -82,6 +90,7 @@ const TagInitial = {
   print(){
     let volume = document.querySelectorAll('[name="volumeInitial"]');
     let weight = document.querySelectorAll('[name="weightInitial"]');
+    const order = document.getElementById('order').value;
 
     let volumeCount = 0;
     let weightCount = 0;
@@ -100,7 +109,11 @@ const TagInitial = {
       weightCount += parseFloat(element)
     });
 
-    console.log(volumes, volumeCount, weights, weightCount)
+    if(!order || !volumeCount || !weightCount){
+      alert("preencha todos os campos!");
+    }else{
+      Print.printInitial({volumeCount, weightCount, order})
+    }
     
   }
 }

@@ -25,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+.div-print {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
 
 .btn-floating {
   position: fixed;
