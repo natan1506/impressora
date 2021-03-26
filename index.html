@@ -17,6 +17,51 @@
     <title>IMPRESSÃO DE ETIQUETAS</title>
   </head>
   <body>
+    <table border=1 width=400px>
+      <tr height=50>
+        <td style='font-family:Calibri;font-size:15px;font-weight:bold' >REMETENTE:<br>remetente</td>
+      </tr>
+      <tr height=50>
+        <td style='font-family:Calibri;font-size:15px;font-weight:bold' >DESTINATÁRIO:<br>destinatario+"</td>
+      </tr>
+      <tr height=50>
+        <td style='font-family:Calibri;font-size:15px;font-weight:bold' >NOTA:  nota</td>
+      </tr>
+      <tr height=50>
+        <td style='font-family:Calibri;font-size:10px;font-weight:bold' >VOLUMES:   </br>PESO: (Kg):<br>peso</td>
+      </tr>
+    </table>
+
+    <table border=0 width=400px style="min-height:200px">
+      <tr >
+        <td style='font-size:12px;font-weight:bold' >REMETENTE:  <span style='font-size:15px;'> remetente</span></td>
+      </tr>
+      <tr >
+        <td style='font-size:12px;font-weight:bold' >DESTINATÁRIO:  <span style='font-size:15px;'> destinatario</span></td>
+      </tr>
+      <tr >
+        <td style='font-size:12px;font-weight:bold' >NOTA:  <span style='font-size:15px;'> nota</span></tr></td>
+      <tr >
+        <td style='font-size:10px;font-weight:bold' >VOLUMES:   parseInt(i + 1) + /  volumes +</td>
+      </tr>
+      <tr >
+        <td style='font-size:10px;font-weight:bold'>PESO(Kg):   media +</td>
+      </tr>
+      <tr >
+        <td style='font-size:10px;font-weight:bold'>#PEDIDO:   pedido +</td>
+      </tr>
+    </table>
+    <table border=0 width=400px style="min-height:200px">
+      <tr height=50>
+        <td style='font-family:Inter;font-size:25px;font-weight:bold' >#PEDIDO:  order +</td>
+      </tr>
+      <tr height=50>
+        <td style='font-family:Inter;font-size:20px;font-weight:400' >VOLUMES:  volumeCount +</td>
+      </tr>
+      <tr height=50>
+        <td style='font-family:Inter;font-size:20px;font-weight:400' >PESO(Kg): weightCount +</td>
+      </tr>
+    </table>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous"></script>
     <script src="assets/js/bootstrap.js"></script>
