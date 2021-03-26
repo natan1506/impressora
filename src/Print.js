@@ -1,5 +1,6 @@
 const Print = {
   printInitial({ volumeCount, weightCount, order }) {
+    console.log(weightCount)
     $("#divPrint").empty();
     $("#divPrint").append(
       "<table border=0 width=400px style='min-height:200px'>"+
@@ -10,7 +11,7 @@ const Print = {
           "<td style='font-size:20px;font-weight:400' >VOLUMES:  "+ volumeCount +"</td>"+
        "</tr>"+
         "<tr height=50>"+
-          "<td style='font-size:20px;font-weight:400' >PESO(Kg): "+ weightCount +"</td>"+
+          "<td style='font-size:20px;font-weight:400' >PESO(Kg): "+ weightCount +" Kg</td>"+
         "</tr>"+
       "</table>"
     );
@@ -26,21 +27,21 @@ const Print = {
       dados += "<br>"+
         "<table border=0 width=400px style='min-height:200px'>"+
           "<tr >"+
-            "<td style='font-size:12px;font-weight:bold' >REMETENTE:  <span style='font-size:15px;'>"+ remetente.toUpperCase() +"</span></td>"+
+            "<td style='font-size:15px;font-weight:bold' >REMETENTE:  <span style='font-size:15px;'>"+ remetente.toUpperCase() +"</span></td>"+
           "</tr>"+
           "<tr >"+
-            "<td style='font-size:12px;font-weight:bold' >DESTINATÁRIO:  <span style='font-size:15px;'>"+ destinatario.toUpperCase() +"</span></td>"+
+            "<td style='font-size:15px;font-weight:bold' >DESTINATÁRIO:  <span style='font-size:15px;'>"+ destinatario.toUpperCase() +"</span></td>"+
           "</tr>"+
           "<tr >"+
-            "<td style='font-size:12px;font-weight:bold' >NOTA:  <span style='font-size:15px;'>"+ nota.toUpperCase() +"</span></tr></td>"+
+            "<td style='font-size:15px;font-weight:bold' >NOTA:  <span style='font-size:15px;'>"+ nota.toUpperCase() +"</span></tr></td>"+
           "<tr >"+
-            "<td style='font-size:10px;font-weight:bold' >VOLUMES:  "+ parseInt(i + 1) +" / "+ volumes +"</td>"+
+            "<td style='font-size:12px;font-weight:bold' >VOLUMES:  "+ parseInt(i + 1) +" / "+ volumes +"</td>"+
           "</tr>"+
           "<tr >"+
-            "<td style='font-size:10px;font-weight:bold'>PESO(Kg):  "+ media +"</td>"+
+            "<td style='font-size:12px;font-weight:bold'>PESO(Kg):  "+ media +"</td>"+
           "</tr>"+
           "<tr >"+
-            "<td style='font-size:10px;font-weight:bold'>#PEDIDO:  "+ pedido +"</td>"+
+            "<td style='font-size:12px;font-weight:bold'>#PEDIDO:  "+ pedido +"</td>"+
           "</tr>"+
         "</table>"
       ;

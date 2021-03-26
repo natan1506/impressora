@@ -110,11 +110,16 @@ const TagInitial = {
       const weight = parseFloat(weights[i]);
 
       weightCount = (volume * weight) + weightCount;
+
     }
 
     if(!order || !volumeCount || !weightCount){
       alert("preencha todos os campos!");
     }else{
+
+      weightCount = String(weightCount).indexOf(".") < 0 ? weightCount = `${weightCount}.00` : weightCount;
+      1
+      console.log(weightCount)
       Print.printInitial({volumeCount, weightCount, order})
     }
     
