@@ -13,35 +13,37 @@ const Print = {
     );
 
     window.print();
-
-    // function Popup(data) {
-    //   var mywindow = window.open('', 'my div', 'height=400,width=600');
-    //   mywindow.document.write('<html><head><title>my div</title>');
-    //   mywindow.document.write('</head><body >');
-    //   mywindow.document.write(data);
-    //   mywindow.document.write('</body></html>');
-
-    //   mywindow.document.close();
-    //   mywindow.focus();
-
-    //   mywindow.print();
-    //   mywindow.close();
-
-    //   return true;
-    // }
-
-    // function generateTag(volumes, weights, order){
-
-    //   var dados="";
-
-    //     var Etiqueta=window.document;
-    //     dados=
-          
-    //   Popup(dados);
-    // }
   },
 
-  printNote() {
+  printNote({remetente, destinatario, nota, pedido, volumes, media}) {
+    $("#divPrint").empty();
+
+    for (let i = 0 ; i < volumes; i++) {
+      $("#divPrint").append(
+        "<br>"+
+        "<table border=0 width=400px>"+
+          "<tr >"+
+            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >REMETENTE:"+remetente+"</td>"+
+          "</tr>"+
+          "<tr >"+
+            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >DESTINATÁRIO:"+destinatario+"</td>"+
+          "</tr>"+
+          "<tr >"+
+            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >NOTA:  "+nota+"</tr></td>"+
+          "<tr >"+
+            "<td style='font-family:Calibri;font-size:10px;font-weight:bold' >VOLUMES:  "+ parseInt(i + 1) +" / "+ volumes +"</td>"+
+          "</tr>"+
+          "<tr >"+
+            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>PESO(Kg):"+ media +"</td>"+
+          "</tr>"+
+          "<tr >"+
+            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>#PEDIDO:"+ pedido +"</td>"+
+          "</tr>"+
+        "</table>"
+      );
+    }
+
+    window.print();
 
   }
 }
