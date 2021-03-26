@@ -33,9 +33,9 @@ const TagInitial = {
             <div class="row mb-3">
               <div class="col">
                 <div class="form-group row">
-                  <label for="volume" class="col-sm-auto col-form-label">Volume</label>
+                  <label for="volume" class="col-4 col-form-label">Volume</label>
                   <div class="col-sm">
-                    <input type="number" class="form-control volume" name="volumeInitial">
+                    <input type="number" class="form-control form-control-sm volume" name="volumeInitial">
                   </div>
                 </div>
               </div>
@@ -43,27 +43,27 @@ const TagInitial = {
                 <div class="form-group row">
                   <label for="peso" class="col-sm-auto col-form-label">Peso(Kg)</label>
                   <div class="col-sm">
-                    <input type="text" class="form-control weight" name="weightInitial">
+                    <input type="text" class="form-control form-control-sm weight" name="weightInitial">
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="form-group row mb-3">
-            <label for="order" class="col-sm-auto col-form-label"># pedido</label>
+            <label for="order" class="col-2 col-form-label"># pedido</label>
             <div class="col-sm">
-              <input type="text" class="form-control" id="order" name="order">
+              <input type="text" class="form-control form-control-sm" id="order" name="order">
             </div>
           </div>
 
           <div class="row justify-content-end">
             <div class="col-auto">
-              <button type="button" name="gerar" id="generateTagInitial" class="btn btn-lg btn-outline-primary">Gerar tiqueta</button>
+              <button type="button" name="gerar" id="generateTagInitial" class="btn btn-sm btn-outline-primary">Gerar tiqueta</button>
             </div>
           </div>
         </div>
       </div>
-      <button class="btn btn-lg btn-outline-primary btn-floating rounded-circle d-print-none" id="toBack"><i class="fas fa-arrow-left"></i></button>
+      <button class="btn btn-sm btn-outline-primary btn-floating rounded-circle d-print-none" id="toBack"><i class="fas fa-arrow-left"></i></button>
     `;
 
     $('.weight').mask('##00.00', {reverse: true});
@@ -105,9 +105,12 @@ const TagInitial = {
       volumeCount += parseInt(element)
     });
 
-    weights.forEach(element => {
-      weightCount += parseFloat(element)
-    });
+    for (let i = 0; i < weights.length; i++) {
+      const volume = parseInt(volumes[i]);
+      const weight = parseFloat(weights[i]);
+
+      weightCount = (volume * weight) + weightCount;
+    }
 
     if(!order || !volumeCount || !weightCount){
       alert("preencha todos os campos!");

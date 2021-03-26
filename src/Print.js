@@ -17,34 +17,52 @@ const Print = {
 
   printNote({remetente, destinatario, nota, pedido, volumes, media}) {
     $("#divPrint").empty();
+    let dados = "";
 
     for (let i = 0 ; i < volumes; i++) {
-      $("#divPrint").append(
-        "<br>"+
-        "<table border=0 width=400px>"+
-          "<tr >"+
-            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >REMETENTE:  "+remetente+"</td>"+
-          "</tr>"+
-          "<tr >"+
-            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >DESTINATÁRIO:  "+destinatario+"</td>"+
-          "</tr>"+
-          "<tr >"+
-            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >NOTA:  "+nota+"</tr></td>"+
-          "<tr >"+
-            "<td style='font-family:Calibri;font-size:10px;font-weight:bold' >VOLUMES:  "+ parseInt(i + 1) +" / "+ volumes +"</td>"+
-          "</tr>"+
-          "<tr >"+
-            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>PESO(Kg):  "+ media +"</td>"+
-          "</tr>"+
-          "<tr >"+
-            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>#PEDIDO:  "+ pedido +"</td>"+
-          "</tr>"+
-        "</table>"
-      );
+      dados += "<br>"+
+          "<table border=0 width=400px>"+
+            "<tr >"+
+              "<td style='font-family:Calibri;font-size:12px;font-weight:bold' >REMETENTE:  <span style='font-size:15px;'>"+ remetente.toUpperCase() +"</span></td>"+
+            "</tr>"+
+            "<tr >"+
+              "<td style='font-family:Calibri;font-size:12px;font-weight:bold' >DESTINATÁRIO:  <span style='font-size:15px;'>"+ destinatario.toUpperCase() +"</span></td>"+
+            "</tr>"+
+            "<tr >"+
+              "<td style='font-family:Calibri;font-size:12px;font-weight:bold' >NOTA:  <span style='font-size:15px;'>"+ nota.toUpperCase() +"</span></tr></td>"+
+            "<tr >"+
+              "<td style='font-family:Calibri;font-size:10px;font-weight:bold' >VOLUMES:  "+ parseInt(i + 1) +" / "+ volumes +"</td>"+
+            "</tr>"+
+            "<tr >"+
+              "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>PESO(Kg):  "+ media +"</td>"+
+            "</tr>"+
+            "<tr >"+
+              "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>#PEDIDO:  "+ pedido +"</td>"+
+            "</tr>"+
+          "</table>"+
+        "</div>"
+      ;
     }
+    // $("#divPrint").append(dados);
+    // window.print();
+    Print.popUp(dados)
+  },
 
-    window.print();
+  popUp(dados){
 
+    var mywindow = window.open('', 'Impressão de Etiqueta de Nota', 'height=400,width=600');
+    mywindow.document.write('<html><head><title>Impressão de Etiqueta de Nota</title>');
+    mywindow.document.write('</head><body onafterprint="self.close()">');
+    mywindow.document.write(dados);
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close();
+    mywindow.focus();
+
+    mywindow.print();
+    window.onafterprint = function(event) { mywindow.close() };
+
+    return true;
   }
 }
 
