@@ -23,10 +23,10 @@ const Print = {
         "<br>"+
         "<table border=0 width=400px>"+
           "<tr >"+
-            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >REMETENTE:"+remetente+"</td>"+
+            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >REMETENTE:  "+remetente+"</td>"+
           "</tr>"+
           "<tr >"+
-            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >DESTINATÁRIO:"+destinatario+"</td>"+
+            "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >DESTINATÁRIO:  "+destinatario+"</td>"+
           "</tr>"+
           "<tr >"+
             "<td style='font-family:Calibri;font-size:15px;font-weight:bold' >NOTA:  "+nota+"</tr></td>"+
@@ -34,10 +34,10 @@ const Print = {
             "<td style='font-family:Calibri;font-size:10px;font-weight:bold' >VOLUMES:  "+ parseInt(i + 1) +" / "+ volumes +"</td>"+
           "</tr>"+
           "<tr >"+
-            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>PESO(Kg):"+ media +"</td>"+
+            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>PESO(Kg):  "+ media +"</td>"+
           "</tr>"+
           "<tr >"+
-            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>#PEDIDO:"+ pedido +"</td>"+
+            "<td style='font-family:Calibri;font-size:10px;font-weight:bold'>#PEDIDO:  "+ pedido +"</td>"+
           "</tr>"+
         "</table>"
       );
