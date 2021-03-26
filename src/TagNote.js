@@ -111,8 +111,7 @@ const TagNote = {
     if(!remetente || !destinatario || !nota || !pedido ||!volumes ||!peso){
       alert("preencha todos os campos!");
     }else{
-
-      const division = parseInt(volumes) / parseFloat(peso);
+      const division = parseFloat(peso) / parseInt(volumes);
       const media = division.toFixed(2);
 
       Print.printNote({remetente, destinatario, nota, pedido, volumes, media})
