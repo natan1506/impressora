@@ -1,19 +1,26 @@
 const Print = {
   printInitial({ volumeCount, weightCount, order }) {
-    console.log(weightCount)
+    let date = new Date();
     $("#divPrint").empty();
     $("#divPrint").append(
-      "<table border=0 width=400px style='min-height:200px'>"+
-        "<tr height=50>"+
-          "<td style='font-size:25px;font-weight:bold' >#PEDIDO: "+ order +"</td>"+
+      "<div width=400px style='min-height:200px' class='d-flex flex-column justify-content-between'>"+
+        "<table border=0>"+
+          "<tr height=50>"+
+            "<td style='font-size:25px;font-weight:bold' >#PEDIDO: "+ order.toUpperCase() +"</td>"+
+          "</tr>"+
+          "<tr height=50>"+
+            "<td style='font-size:20px;font-weight:400' >VOLUMES:  "+ volumeCount +"</td>"+
         "</tr>"+
-        "<tr height=50>"+
-          "<td style='font-size:20px;font-weight:400' >VOLUMES:  "+ volumeCount +"</td>"+
-       "</tr>"+
-        "<tr height=50>"+
-          "<td style='font-size:20px;font-weight:400' >PESO(Kg): "+ weightCount +" Kg</td>"+
-        "</tr>"+
-      "</table>"
+          "<tr height=50>"+
+            "<td style='font-size:20px;font-weight:400' >PESO(Kg): "+ weightCount +" Kg</td>"+
+          "</tr>"+
+        "</table>"+
+        "<div class='row justify-content-end'>"+
+          "<div class='col-auto'>"+
+            "<span style='font-size:10px;'>"+ date.toLocaleString('pt-BR', { timeZone: 'UTC' }) +"</span>"+
+          "</div>"+
+        "</div>"+
+      "</div>"
     );
 
     window.print();
@@ -22,10 +29,12 @@ const Print = {
   printNote({remetente, destinatario, nota, pedido, volumes, media}) {
     $("#divPrint").empty();
     let dados = "";
+    let date = new Date();
 
     for (let i = 0 ; i < volumes; i++) {
       dados += "<br>"+
-        "<table border=0 width=400px style='min-height:200px'>"+
+      "<div width=400px style='min-height:200px' class='d-flex flex-column justify-content-between'>"+
+        "<table border=0>"+
           "<tr >"+
             "<td style='font-size:15px;font-weight:bold' >REMETENTE:  <span style='font-size:15px;'>"+ remetente.toUpperCase() +"</span></td>"+
           "</tr>"+
@@ -43,7 +52,13 @@ const Print = {
           "<tr >"+
             "<td style='font-size:12px;font-weight:bold'>#PEDIDO:  "+ pedido +"</td>"+
           "</tr>"+
-        "</table>"
+        "</table>"+
+        "<div class='row justify-content-end'>"+
+          "<div class='col-auto'>"+
+            "<span style='font-size:10px;'>"+ date.toLocaleString('pt-BR', { timeZone: 'UTC' }) +"</span>"+
+          "</div>"+
+        "</div>"+
+      "</div>"
       ;
     }
 
@@ -53,7 +68,7 @@ const Print = {
   popUp(dados){
 
     var mywindow = window.open('', 'Impressão de Etiqueta de Nota', 'height=400,width=600');
-    mywindow.document.write('<html><head><title>Impressão de Etiqueta de Nota</title>');
+    mywindow.document.write('<html><head><title>Impressão de Etiqueta de Nota</title><link rel="stylesheet" href="assets/css/bootstrap.css" />');
     mywindow.document.write('</head><body onafterprint="self.close()">');
     mywindow.document.write(dados);
     mywindow.document.write('</body></html>');
