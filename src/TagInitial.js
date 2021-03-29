@@ -63,7 +63,7 @@ const TagInitial = {
           </div>
         </div>
       </div>
-      <button class="btn btn-sm btn-outline-primary btn-floating rounded-circle d-print-none" id="toBack"><i class="fas fa-arrow-left"></i></button>
+      <button class="btn btn-lg btn-outline-primary btn-floating rounded-circle d-print-none" id="toBack"><i class="fas fa-arrow-left"></i></button>
     `;
 
     $('.weight').mask('##00.00', {reverse: true});
